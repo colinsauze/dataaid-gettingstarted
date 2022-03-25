@@ -15,20 +15,31 @@ The default "Python 3" notebook Sunpyter creates uses the environment that it is
 
 ## Team kernels
 
-However, you can also see separate notebook kernels for each team. These make use of separate Conda environments that have write access enabled, so you can install (and remove) packages in them.
+However, you can also see separate notebook kernels for each team,
+in different versions. 
+These make use of separate Conda environments 
+that have write access enabled, 
+so you can install (and remove) packages in them.
 
 Because installing packages requires an internet connection, and there is no internet connection on any of Sunbird's compute nodes, you will need to log in to Sunbird in order to make changes. To activate the environment to make changes, in a new terminal on your own machine:
 
 ~~~
 $ ssh your.scw.username@sunbird.swansea.ac.uk
-$ module load anaconda/2020.07
+$ module load anaconda/2021.05
 $ source activate /scratch/s.michele.mesiti/DataAidCondaEnvs/ENVNAME
 ~~~
 {: .language-bash}
 
-Replace `ENVNAME` with the name of the environment you want to use&mdash;either `ChanceToShine`, `DianaAward`, or `Fairtrade`.
+Replace `ENVNAME` with the name of the environment you want to use.
+`ENVNAME` for the environment you are interested in 
+should be loosely related to the kernel name 
+displayed in the Jupyter notebook interface.
 
-Now, you can use `conda install`, or `pip install`, as you prefer, to manage the packages in this environment. (Note that `conda` and `pip` don't always interact well, so stick with one or the other if possible.)
+Now, you can use `pip install` to manage the python packages in this environment. 
+If you need to install non-python dependencies use `conda install` instead.
+
+You might encounter some problems while trying to install some packages,
+in that case ask for help.
 
 ## Private kernels
 

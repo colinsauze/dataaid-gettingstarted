@@ -17,7 +17,9 @@ In general, supercomputing centres like their machines to be busy 100% of the ti
 
 While a final solution is still yet to arrive, for the time being we have developed a workaround called Sunpyter. Sunpyter automatically requests that the Sunbird queue manager allocates some compute resources on the CDT compute nodes, launches the Jupyter notebook server on these resources, creates a tunnel allowing your computer to connect to the notebook server running on the compute node, and then releases the resources when you terminate the process.
 
-Sunpyter is available from [GitHub][sunpyter]. Because currently the Sunpyter repository contains some private information specific to this event, the repository is private on GitHub; if you do not already have access, then raise a hand and let us know so we can add you.
+Sunpyter is available from [GitHub][sunpyter]. **Because currently the Sunpyter repository contains some private information specific to this event, the repository is private on GitHub; if you do not already have access, then ask for help.**
+
+## Downloading Sunpyter
 
 Clone the repository to your local computer (not to the CDT gateway node). You can do this with HTTPS, or if you've already set up SSH keys on GitHub, then you can use SSH instead:
 
@@ -33,6 +35,11 @@ $ git clone git@github.com:sa2c/sunpyter
 ~~~
 {: .language-bash}
 
+If that for some reason does not work, 
+you may try to download a zip archive from [here][sunpyterzip].
+
+## Testing your setup
+
 With Sunpyter downloaded, the first step is to test that it is able to connect to Sunbird without a key and do what it needs to:
 
 ~~~
@@ -42,16 +49,26 @@ $ ./test.sh
 ~~~
 {: .language-bash}
 
-This will spin up its own `ssh-agent` and add your `id_rsa` to it, so you will need to type the password for your key. As the program tells you, if you need to type in your Sunbird password then something has gone wrong, and you should raise a hand and talk to a helper.
+This will spin up its own `ssh-agent` and add your `id_rsa` to it, so you will need to type the password for your key. As the program tells you, if you need to type in your Sunbird password then something has gone wrong, and you should ask for help.
 
-Once you know that Sunpyter is able to connect correctly, you can use it to launch a Jupyter notebook server on the CDT nodes.
+Once all the tests pass successfully, 
+very likely you will be able to run Sunpyter 
+with little issues.
+
+## Running Sunpyter and opening a Jupyter notebook
+
+If all the tests pass, try
 
 ~~~
 $ bash ./sunpyter.sh your.scw.username
 ~~~
 {: .language-bash}
 
-(As always, replace `your.scw.username` with your actual Supercomputing Wales username.) Again, when prompted, enter the passphrase for your private key. At this point, Sunpyter will either open a new browser window pointing at the notebook server, or will present you with a link that you can copy and paste into your browser. Leave the terminal window running&mdash;this is what is maintaining your connection to the notebook server.
+(As always, replace `your.scw.username` with your actual Supercomputing Wales username). 
+Again, when prompted, enter the passphrase for your private key. 
+At this point, Sunpyter will either open a new browser window pointing at the notebook server, 
+or will present you with a link that you can copy and paste into your browser. 
+Leave the terminal window running&mdash;this is what is maintaining your connection to the notebook server.
 
 > ## Quick checks
 >
@@ -83,3 +100,4 @@ Once you're finished with Jupyter, then you can return to the terminal and press
 If you encounter difficulties with Sunpyter, first of all, try a `git pull` of the repository to ensure that you are running the most recent version&mdash;we are regularly updating Sunpyter as we identify areas for improvement, and may have already fixed the issue you are encountering. The next place to check for information is the README, which can be viewed [at the GitHub repository][sunpyter], and is also included in the repository when downloaded. In particular, the "Troubleshooting" section at the bottom has answers to some commonly-encountered issues, and is regularly updated with new issues and fixes as we become aware of them. If your issue is not listed there, then please ask on Slack and the RSE team will help you get things working correctly.
 
 [sunpyter]: https://github.com/sa2c/sunpyter
+[sunpyterzip]: https://github.com/sa2c/sunpyter/archive/refs/heads/CDT.zip
