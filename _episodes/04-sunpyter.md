@@ -21,14 +21,7 @@ Sunpyter is available from [GitHub][sunpyter]. **Because currently the Sunpyter 
 
 ## Downloading Sunpyter
 
-Clone the repository to your local computer (not to the CDT gateway node). You can do this with HTTPS, or if you've already set up SSH keys on GitHub, then you can use SSH instead:
-
-~~~
-$ git clone https://github.com/sa2c/sunpyter
-~~~
-{: .language-bash}
-
-_or_
+Clone the repository to your local computer (not to the CDT gateway node). You need to have already set up SSH keys on GitHub:
 
 ~~~
 $ git clone git@github.com:sa2c/sunpyter
